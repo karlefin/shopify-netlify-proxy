@@ -1,7 +1,6 @@
-// netlify/functions/products.js
-const fetch = require("node-fetch");
+// functions/products.js
 
-exports.handler = async function (event, context) {
+export async function handler(event, context) {
   const shopDomain = "dold-industries.myshopify.com";
   const storefrontToken = "6b1735c9e33e883434e758281ebcb888";
 
@@ -46,6 +45,7 @@ exports.handler = async function (event, context) {
       },
       body: JSON.stringify(data),
     };
+
   } catch (err) {
     return {
       statusCode: 500,
@@ -53,4 +53,4 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({ error: err.message }),
     };
   }
-};
+}
